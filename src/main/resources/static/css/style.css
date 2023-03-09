@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+#wrap {
+	width:1200px;
+	margin:auto;
+}
+
+header {
+	height:70px;
+	background-color:rgb(39, 174, 96);
+}
+
+.btn {
+	background-color:rgb(81, 61, 0);
+}
+
+.contents > .bg-box {
+	width:500px;
+	background-color:rgba(39, 174, 96, 0.17);
+}
+
+.bg-box > .join-box {
+	width:250px;
+	margin:auto;
+}
+
+.comment {
+	width:430px;
+	height:20px;
+	background-color:rgb(39, 174, 96);
+}
+
+footer {
+	height:50px;
+}
