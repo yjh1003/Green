@@ -22,4 +22,5 @@ public class UserBO {
 		return userDAO.insertUser(loginId, password, name, phoneNumber, email, type);
 		
 	}
+	
 }

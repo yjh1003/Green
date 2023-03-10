@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Green</title>
+<title>Green_signup</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	
 	<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
@@ -20,7 +20,7 @@
 			<section class="contents d-flex justify-content-center">
 				<div class="bg-box">
 					<div class="join-box my-5">
-						<h2 class="text-center">회원가입</h2>
+						<h2 class="text-center">Join</h2>
 						<div class="d-flex  mt-3">
 							<input type="text" id="loginIdInput" class="form-control" placeholder="아이디">
 							<button type="button" class="btn btn-info btn-sm ml-2" id="isDuplicateBtn">중복확인</button>
@@ -56,6 +56,8 @@
 				let passwordConfirm = $("#passwordConfirmInput").val();
 				let name = $("#nameInput").val();
 				let phoneNumber = $("#phoneNumberInput").val();
+				let email = $("#emailInput").val();
+				let type = $('input[name=account]:checked').val();
 				
 				if(id == "") {
 					alert("아이디를 입력하세요");
@@ -77,10 +79,29 @@
 					return ;
 				}
 				
-				if(phoneNumber = "") {
+				if(phoneNumber == "") {
 					alert("휴대폰번호를 입력하세요");
 					return ;
 				}
+				
+		                  
+				
+				$.ajax({
+					type:"post"
+					, url:"/user/signup"
+					, data:{"loginId":id, "password":password, "name":name, "phoneNumber":phoneNumber, "email":email, "type":type}
+					, success:function(data) {
+						if(data.result == "success") {
+							location.href = "/user/signin/view";
+						} else {
+							alert("회원가입 실패");
+						}
+					}
+					, error:function() {
+						alert("회원가입 에러");
+					}
+					
+				});
 				
 			});
 			

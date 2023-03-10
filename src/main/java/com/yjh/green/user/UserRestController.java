@@ -24,7 +24,7 @@ public class UserRestController {
 			, @RequestParam("password") String password
 			, @RequestParam("name") String name
 			, @RequestParam("phoneNumber") String phoneNumber
-			, @RequestParam("email") String email
+			, @RequestParam(value="email", required = false) String email
 			, @RequestParam("type") String type) {
 		
 		Map<String, String> result = new HashMap<>();
