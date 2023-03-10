@@ -25,6 +25,9 @@
 							<input type="text" id="loginIdInput" class="form-control" placeholder="아이디">
 							<button type="button" class="btn btn-info btn-sm ml-2" id="isDuplicateBtn">중복확인</button>
 						</div>
+						
+						<div class="small text-success d-none" id="availableText">사용가능한 아이디 입니다</div>
+						<div class="small text-danger d-none" id="duplicateText">중복된 아이디 입니다</div>
 					
 						<input type="password" id="passwordInput" class="form-control mt-3" placeholder="비밀번호">
 						<input type="password" id="passwordConfirmInput" class="form-control mt-3" placeholder="비밀번호 확인">
@@ -49,6 +52,43 @@
 	<script>
 		$(document).ready(function() {
 			
+			var isDuplicateCheck = false;
+			var isDuplicateId = true;
+			
+			$("#isDuplicateBtn").on("click", function() {
+				let id = $("#loginIdInput").val();
+				
+				if(id == "") {
+					alert("아이디를 입력하세요");
+					return;
+				}
+				
+				$.ajax({
+					type:"get"
+					, url:"/user/duplicate_id"
+					, data:{"loginId":id}
+					, success:function(data) {
+						isDuplicateCheck = true;
+						
+						if(data.is_duplicate) {
+							
+							isDuplicateId = true;
+							$("#duplicateText").removeClass("d-none");
+							$("#availableText").addClass("d-none");
+						} else {
+							
+							isDuplicateId = false;
+							$("#availableText").removeClass("d-none");
+							$("#duplicateText").addClass("d-none");
+						}
+						
+					}
+					, error:function() {
+						alert("중복확인 에러");
+					}
+				});
+				
+			});
 		
 			$("#signUpBtn").on("click", function() {
 				let id = $("#loginIdInput").val();
@@ -62,6 +102,16 @@
 				if(id == "") {
 					alert("아이디를 입력하세요");
 					return;
+				}
+
+				if(!isDuplicateCheck) {
+					alert("아이디 중복확인을 해주세요");
+					return ;
+				}
+				
+				if(isDuplicateId) {
+					alert("중복된 아이디 입니다");
+					return ;
 				}
 				
 				if(password == "") {

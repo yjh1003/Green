@@ -20,7 +20,19 @@ public class UserBO {
 			, String type) {
 				
 		return userDAO.insertUser(loginId, password, name, phoneNumber, email, type);
+				
+	}
+	
+	
+	public boolean duplicateId(String loginId) {
 		
+		int count = userDAO.selectCountByLoginId(loginId);
+		
+		if(count == 0) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 	
 }
