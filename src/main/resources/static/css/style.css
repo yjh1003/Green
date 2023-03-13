@@ -12,7 +12,17 @@ header {
 
 .btn {
 	background-color:rgb(81, 61, 0);
-	font-color:white;
+}
+
+.nav > .nav-item > .nav-link {
+    background-color:#219e2b; 
+    color:white; 
+    font-size:17px;
+    font-weight: bold;
+}
+
+.nav > .nav-item > a:hover {
+    background-color:rgba(39, 174, 96, 0.17);
 }
 
 .contents > .bg-box {

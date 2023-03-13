@@ -18,7 +18,14 @@
 <body>
 		<div id="wrap">
 			<c:import url="/WEB-INF/jsp/include/header.jsp" />
-			
+			<nav class="mt-4">
+                    <ul class="nav nav-fill">
+                        <li class="nav-item"><a class="nav-link" href="#">Review</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Health</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Hospital</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Best</a></li>
+                    </ul>
+                </nav>
 			<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 		</div>
 </body>

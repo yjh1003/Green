@@ -77,6 +77,10 @@
 										
 				});
 				
+				$("#signUpBtn").on("click", function() {
+					location.href = "/user/signup/view";
+				});
+				
 			});
 	</script>
 </body>
