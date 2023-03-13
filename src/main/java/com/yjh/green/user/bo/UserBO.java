@@ -3,7 +3,9 @@ package com.yjh.green.user.bo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.yjh.green.config.EncryptUtils;
 import com.yjh.green.user.dao.UserDAO;
+import com.yjh.green.user.model.User;
 
 @Service
 public class UserBO {
@@ -19,7 +21,9 @@ public class UserBO {
 			, String email
 			, String type) {
 				
-		return userDAO.insertUser(loginId, password, name, phoneNumber, email, type);
+		String encryptPassword = EncryptUtils.md5(password);
+		
+		return userDAO.insertUser(loginId, encryptPassword, name, phoneNumber, email, type);
 				
 	}
 	
@@ -34,5 +38,18 @@ public class UserBO {
 			return true;
 		}
 	}
+	
+	public User getUser(String loginId, String password) {
+		
+		String encryptPassword = EncryptUtils.md5(password);
+		
+		return userDAO.selectUser(loginId, encryptPassword);
+		
+	}
+	
+	public User getUserById(int id) {
+		return userDAO.selectUserById(id);
+	}
+	
 	
 }

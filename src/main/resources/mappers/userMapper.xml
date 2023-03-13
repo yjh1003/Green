@@ -39,4 +39,43 @@
 			WHERE
 				`loginId` = #{loginId}
 		</select>
+		
+		<select id="selectUser" parameterType="map" 
+		resultType="com.yjh.green.user.model.User">
+		
+			SELECT
+				`id`
+				, `loginId`
+				, `type`
+				, `password`
+				, `name`
+				, `phoneNumber`
+				, `email`
+				, `createdAt`
+				, `updatedAt`
+			FROM
+				`user`
+			WHERE
+				`loginId` = #{loginId}
+			AND `password` = #{password}
+				
+		</select>
+		
+		<select id="selectUserById" parameterType="int"
+		resultType="com.yjh.green.user.model.User">
+			SELECT
+				`id`
+				, `loginId`
+				, `type`
+				, `password`
+				, `name`
+				, `phoneNumber`
+				, `email`
+				, `createdAt`
+				, `updatedAt`
+			FROM
+				`user`
+			WHERE
+				`id` = #{id}
+		</select>
 	</mapper>

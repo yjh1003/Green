@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.yjh.green.user.bo.UserBO;
+import com.yjh.green.user.model.User;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping("/user")
@@ -56,4 +60,29 @@ public class UserRestController {
 		return result;
 	
 	}
+	
+	@PostMapping("/signin")
+	public Map<String, String> signin(
+			@RequestParam("loginId") String loginid
+			, @RequestParam("password") String password
+			, HttpServletRequest request) {
+		
+		User user = userBO.getUser(loginid, password);
+		Map<String, String> result = new HashMap<>();
+		
+		if(user != null) {
+			
+			HttpSession session =  request.getSession();
+			session.setAttribute("userId", user.getId());
+			session.setAttribute("userName", user.getName());
+			
+			result.put("result", "success");
+		} else {
+			result.put("result", "fail");
+		}
+		
+		return result;
+		
+	}
+	
 }

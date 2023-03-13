@@ -55,6 +55,13 @@
 			var isDuplicateCheck = false;
 			var isDuplicateId = true;
 			
+			$("#loginIdInput").on("input", function() {
+				isDuplicateCheck = false;
+				isDuplicateId = true;
+				$("#duplicateText").addClass("d-none");
+				$("#availableText").addClass("d-none");
+			});
+			
 			$("#isDuplicateBtn").on("click", function() {
 				let id = $("#loginIdInput").val();
 				
@@ -156,6 +163,7 @@
 			});
 			
 		});
+		
 	</script>
 	
 </html>

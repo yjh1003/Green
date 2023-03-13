@@ -12,6 +12,7 @@ header {
 
 .btn {
 	background-color:rgb(81, 61, 0);
+	font-color:white;
 }
 
 .contents > .bg-box {
