@@ -14,6 +14,7 @@ header {
 	background-color:rgb(81, 61, 0);
 }
 
+
 .nav > .nav-item > .nav-link {
     background-color:#219e2b; 
     color:white; 
@@ -21,8 +22,15 @@ header {
     font-weight: bold;
 }
 
+.nav > .panel-collapse >.menu {
+	background-color:rgba(39, 174, 96, 0.4); 
+    color:white; 
+    font-size:17px;
+    font-weight: bold;
+}
+
 .nav > .nav-item > a:hover {
-    background-color:rgba(39, 174, 96, 0.17);
+    background-color:rgba(39, 174, 96, 0.3);
 }
 
 .contents > .bg-box {
