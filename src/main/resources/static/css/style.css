@@ -33,6 +33,11 @@ header {
     background-color:rgba(39, 174, 96, 0.3);
 }
 
+.register {
+	width:600px;
+}
+
+
 .contents > .bg-box {
 	width:500px;
 	background-color:rgba(39, 174, 96, 0.17);

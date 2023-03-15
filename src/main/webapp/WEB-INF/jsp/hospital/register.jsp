@@ -57,16 +57,47 @@
                   	   </ul>
                	</nav>
                
-       			<section>
+       			<section class="register">
               	<div class="d-flex justify-content-center">
                     <div class="container">
-                        <label>병원명 : </label><input type="text" name="name" class="form-control">
-                        <label>진료과목 : </label><input type="text" name="name" class="form-control">
-                        <label>위치정보 : </label><input type="text" name="name" class="form-control">
-                        <label>전화번호 : </label><input type="text" name="name" class="form-control">
-                        <label>의료진 정보 : </label><input type="text" name="name" class="form-control">
-                        <label>홈페이지 주소 : </label><input type="text" name="name" class="form-control">
-              		
+                    	<div class="d-flex mt-5">
+                        	<label class="col-3">병원명 : </label><input id="hospitalName" type="text" name="name" class="form-control">
+                        </div>
+                        <div class="d-flex mt-2">
+	                        <label class="col-3">진료과목 : </label>
+	                        <div class="dropdown">
+							  <button class="btn-secondary dropdown-toggle" type="button" id="subject" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							    진료과목 선택
+							  </button>
+							  <div class="dropdown-menu" aria-labelledby="subject">
+							    <a class="dropdown-item" href="#">내과</a>
+							    <a class="dropdown-item" href="#">치과</a>
+							    <a class="dropdown-item" href="#">이비인후과</a>
+							    <a class="dropdown-item" href="#">피부과</a>
+							    <a class="dropdown-item" href="#">정형외과</a>
+							    <a class="dropdown-item" href="#">정신건강의학과</a>
+							    <a class="dropdown-item" href="#">안과</a>
+							    <a class="dropdown-item" href="#">외과</a>
+							    <a class="dropdown-item" href="#">성형외과</a>
+							    <a class="dropdown-item" href="#">산부인과</a>
+							    <a class="dropdown-item" href="#">비뇨기과</a>
+							    <a class="dropdown-item" href="#">한의원</a>
+							  </div>
+							</div>
+						</div>
+						<div class="d-flex mt-2">
+                        	<label class="col-3">위치정보 : </label><input id="address" type="text" name="name" class="form-control">
+                        </div>
+                        <div class="d-flex mt-2">
+                        	<label class="col-3">전화번호 : </label><input id="telNumber" type="text" name="name" class="form-control">
+                        </div>
+                        <div class="d-flex mt-2">
+                        	<label class="col-3">의료진 정보 : </label><input id="medicalStaff" type="text" name="name" class="form-control">
+                        </div>
+                        <div class="d-flex mt-2">
+                        	<label class="col-3">홈페이지 주소 : </label><input id="hompage" type="text" name="name" class="form-control">            		
+              			</div>
+              			<button class="btn text-white float-right mt-2" id="registerBtn">등록</button>
               		</div>
               	</div>
            	  </section>
@@ -74,4 +105,64 @@
            </div>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	</div>
+	
+	<script>
+	$(document).ready(function() {
+		
+		$("#registerBtn").on("click", function() {
+			let hospitalName = $("#hospitalName").val();	
+			let subject = $("#subject").val();
+			let address = $("#address").val();
+			let telNumber = $("#telNumber").val();
+			let medicalStaff = $("#medicalStaff").val();
+			let hompage = $("#hompage").val();
+			
+			if(hospitalName == "") {
+				alert("병원명을 입력하세요");
+				return ;
+			}
+			
+			if(subject == "") {
+				alert("진료과목을 선택하세요")
+				return ;
+			}
+			
+			if(address == "") {
+				alert("병원 주소를 입력하세요")
+				return ;
+			}
+			
+			if(telNumber == "") {
+				alert("전화번호를 입력하세요")
+				return ;
+			}
+			
+			if(medicalStaff == "") {
+				alert("의료진 정보를 입력하세요")
+				return ;
+			}
+			
+			$.ajax({
+				type:"post"
+				, url:"/hospital/register"
+				, data:{"hospitalName":hospitalName, "subject":subject, "address":address, "telNumber":telNumber, "medicalStaff":medicalStaff, "hompage":hompage}
+				, success:function(data) {
+					if(data.result == "success") {
+						location.href = "/hospital/register/list";
+					} else {
+						alert("병원정보 저장 실패");
+					}
+					
+				}
+				, error:function() {
+					alert("병원정보 저장 에러");
+				}
+			});
+			
+		});
+	
+	});
+	
+	
+	</script>
 </html>

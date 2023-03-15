@@ -17,5 +17,10 @@ public class HospitalController {
 	public String registerView() {
 		return "/hospital/register";
 	}
+
+	@GetMapping("/register/list")
+	public String registerList() {
+		return "/hospital/registerlist";
+	}
 	
 }
