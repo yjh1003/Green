@@ -27,7 +27,7 @@
 		             	 	<ol class="menu">
 				                <li class="nav-item"><a class="nav-link" href="#">우리동네 추천병원</a></li>
 				                <li class="nav-item"><a class="nav-link" href="#">가까운 병원찾기</a></li>
-				                <li class="nav-item"><a class="nav-link" href="#">병원 등록</a></li>
+				                <li class="nav-item"><a class="nav-link" href="">병원 등록</a></li>
 		              		  </ol>
               		 	</div>
 	                   <li class="nav-item"><a class="nav-link" role="button" data-toggle="collapse" data-parent="#accParent" href="#review" aria-constrols="addEx1">Review</a></li>

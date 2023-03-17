@@ -3,7 +3,7 @@ package com.yjh.green.user.bo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.yjh.green.config.EncryptUtils;
+import com.yjh.green.common.EncryptUtils;
 import com.yjh.green.user.dao.UserDAO;
 import com.yjh.green.user.model.User;
 

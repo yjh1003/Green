@@ -65,25 +65,15 @@
                         </div>
                         <div class="d-flex mt-2">
 	                        <label class="col-3">진료과목 : </label>
-	                        <div class="dropdown">
-							  <button class="btn-secondary dropdown-toggle" type="button" id="subject" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							    진료과목 선택
-							  </button>
-							  <div class="dropdown-menu" aria-labelledby="subject">
-							    <a class="dropdown-item" href="#">내과</a>
-							    <a class="dropdown-item" href="#">치과</a>
-							    <a class="dropdown-item" href="#">이비인후과</a>
-							    <a class="dropdown-item" href="#">피부과</a>
-							    <a class="dropdown-item" href="#">정형외과</a>
-							    <a class="dropdown-item" href="#">정신건강의학과</a>
-							    <a class="dropdown-item" href="#">안과</a>
-							    <a class="dropdown-item" href="#">외과</a>
-							    <a class="dropdown-item" href="#">성형외과</a>
-							    <a class="dropdown-item" href="#">산부인과</a>
-							    <a class="dropdown-item" href="#">비뇨기과</a>
-							    <a class="dropdown-item" href="#">한의원</a>
-							  </div>
-							</div>
+							  <select id="subjectSelect" class="form-control">
+							    <option value="0">진료과목을 선택하세요</option>
+							    <option>내과</option>
+							    <option>안과</option>
+							    <option>치과</option>
+							    <option>정형외과</option>
+							    <option>산부인과</option>
+							  </select>
+							
 						</div>
 						<div class="d-flex mt-2">
                         	<label class="col-3">위치정보 : </label><input id="address" type="text" name="name" class="form-control">
@@ -110,8 +100,8 @@
 	$(document).ready(function() {
 		
 		$("#registerBtn").on("click", function() {
-			let hospitalName = $("#hospitalName").val();	
-			let subject = $("#subject").val();
+			let hospitalName = $("#hospitalName").val();
+			let subject = $("#subjectSelect").val();
 			let address = $("#address").val();
 			let telNumber = $("#telNumber").val();
 			let medicalStaff = $("#medicalStaff").val();
@@ -145,7 +135,7 @@
 			$.ajax({
 				type:"post"
 				, url:"/hospital/register"
-				, data:{"hospitalName":hospitalName, "subject":subject, "address":address, "telNumber":telNumber, "medicalStaff":medicalStaff, "hompage":hompage}
+				, data:{"hospitalName":hospitalName, "subject":subject, "address":address, "telnumber":telNumber, "medicalStaff":medicalStaff, "hompage":hompage}
 				, success:function(data) {
 					if(data.result == "success") {
 						location.href = "/hospital/register/list";

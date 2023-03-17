@@ -57,6 +57,41 @@
                   	   </ul>
                	</nav>
                	</section>
+               	<div class="d-flex">
+               		<div class="container">
+               		<h2>병원정보리스트</h2>
+               		<table class="table text-center mt-4">
+               			<thead>
+							<tr>
+	               				<th>No.</th>
+	               				<th>등록자</th>
+	               				<th>병원명</th>
+	               				<th>진료과목</th>
+	               				<th>위치정보</th>
+	               				<th>전화번호</th>
+	               				<th>의료진 정보</th>
+	               				<th>홈페이지 주소</th>
+	               				<th>삭제</th>
+               				</tr>
+               			</thead>
+               			<tbody>
+               			<c:forEach var="hospital" items="${hospitalList }">
+               				<tr>
+               					<td>${hospital.id}</td>
+               					<td>${hospital.userId}</td>
+               					<td>${hospital.hospitalName}</td>
+               					<td>${hospital.subject}</td>
+               					<td>${hospital.address}</td>
+               					<td>${hospital.telnumber}</td>
+               					<td>${hospital.medicalStaff}</td>
+               					<td>${hospital.homepage}</td>
+               					<td><button class="btn btn-danger">삭제</button></td>
+               				</tr>
+               			</c:forEach>
+               			</tbody>
+               			</table>
+               		</div>
+               	</div>
                	</div>
                	
 

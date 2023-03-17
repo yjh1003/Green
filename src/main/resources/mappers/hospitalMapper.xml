@@ -10,29 +10,49 @@
 		INSERT INTO
 			`hospital`
 		(
-			`adminId`
+			`userId`
 			, `hospitalName`
 			, `subject`
 			, `address`
 			, `telnumber`
 			, `medicalStaff`
-			, `hompage`
+			, `homepage`
 			, `createdAt`
 			, `updatedAt`
 		)
 		VALUE
 		(
-			#{adminId}
+			#{userId}
 			, #{hospitalName}
 			, #{subject}
 			, #{address}
 			, #{telnumber}
 			, #{medicalStaff}
-			, #{hompage}
+			, #{homepage}
 			, now()
 			, now()
 		)
 	
 	</insert>
+	
+	<select id="selectHospitalList" resultType="com.yjh.green.hospital.model.Hospital">
+		SELECT
+			`id`
+			, `userId`
+			, `hospitalName`
+			, `subject`
+			, `address`
+			, `telnumber`
+			, `medicalStaff`
+			, `homepage`
+			, `createdAt`
+			, `updatedAt`
+		FROM 
+			`hospital`
+		WHERE
+			`userId` = #{userId}
+		ORDER BY
+			`id` DESC;
+	</select>
 	
 </mapper>

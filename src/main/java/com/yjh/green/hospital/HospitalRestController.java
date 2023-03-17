@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.yjh.green.hospital.bo.HospitalBO;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 @RequestMapping("/hospital")
@@ -21,20 +22,21 @@ public class HospitalRestController {
 	private HospitalBO hospitalBO;
 	
 	@PostMapping("/register")
-	public Map<String, String> hospitalRegister(	
-		@RequestParam("hospitalName") String hospitalName
+	public Map<String, String> hospitalRegister(
+		 @RequestParam("hospitalName") String hospitalName
 		, @RequestParam("subject") String subject
+		, @RequestParam("address") String address
 		, @RequestParam("telnumber") String telnumber
 		, @RequestParam("medicalStaff") String medicalStaff
 		, @RequestParam(value="homepage", required = false) String homepage
 		, HttpSession session) {
 		
-		int adminId = (Integer)session.getAttribute("adminId");
+		int userId = (Integer)session.getAttribute("userId");
 		
-		int count = hospitalBO.addRegister(adminId, hospitalName, subject, subject, telnumber, medicalStaff, homepage);
-		
+		int count = hospitalBO.addRegister(userId, hospitalName, subject, address, telnumber, medicalStaff, homepage);
+
 		Map<String, String> result = new HashMap<>();
-		
+			
 		if(count == 1) {
 			result.put("result", "success");
 		} else {
@@ -44,4 +46,6 @@ public class HospitalRestController {
 		return result;
 		
 	}
+	
+	
 }

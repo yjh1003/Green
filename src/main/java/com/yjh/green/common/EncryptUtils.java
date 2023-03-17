@@ -1,4 +1,4 @@
-package com.yjh.green.config;
+package com.yjh.green.common;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
