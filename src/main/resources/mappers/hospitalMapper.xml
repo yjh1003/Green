@@ -55,4 +55,10 @@
 			`id` DESC;
 	</select>
 	
+	<delete id="deleteHospital" parameterType="int">
+		DELETE FROM
+	  		`hospital`
+	  	WHERE
+	  		`id` = #{id}
+	</delete>
 </mapper>

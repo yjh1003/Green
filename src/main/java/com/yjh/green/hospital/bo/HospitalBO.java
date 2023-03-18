@@ -24,4 +24,9 @@ public class HospitalBO {
 		return hospitalDAO.selectHospitalList(userId);
 	}
 	
+	public int deleteHospital(int hospitalId) {
+				
+		return hospitalDAO.deleteHospital(hospitalId);
+	}
+	
 }

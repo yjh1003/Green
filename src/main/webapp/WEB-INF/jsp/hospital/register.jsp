@@ -6,8 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Green - 병원 등록</title>
-</head>
-<body>
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
@@ -15,7 +14,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="/static/css/style.css" type="text/css">
-</body>
+</head>
+<body>
 
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
@@ -66,12 +66,19 @@
                         <div class="d-flex mt-2">
 	                        <label class="col-3">진료과목 : </label>
 							  <select id="subjectSelect" class="form-control">
-							    <option value="0">진료과목을 선택하세요</option>
-							    <option>내과</option>
-							    <option>안과</option>
-							    <option>치과</option>
-							    <option>정형외과</option>
-							    <option>산부인과</option>
+							    <option value="진료과목을 선택하세요">진료과목을 선택하세요</option>
+							    <option value="내과">내과</option>
+							    <option value="치과">치과</option>
+							    <option value="안과">안과</option>
+							    <option value="피부과">피부과</option>
+							    <option value="이비인후과">이비인후과</option>
+							    <option value="정형외과">정형외과</option>
+							    <option value="성형외과">성형외과</option>
+							    <option value="외과">외과</option>
+							    <option value="산부인과">산부인과</option>
+							    <option value="비뇨기과">비뇨기과</option>
+							    <option value="정신건강의학과">정신건강의학과</option>
+							    <option value="한의원">한의원</option>
 							  </select>
 							
 						</div>
@@ -155,4 +162,5 @@
 	
 	
 	</script>
+</body>
 </html>

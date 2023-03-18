@@ -21,4 +21,6 @@ public interface HospitalDAO {
 	
 	public List<Hospital> selectHospitalList(@Param("userId") int userId);
 	
+	public int deleteHospital(@Param("hospitalId") int hospitalId);
+	
 }
