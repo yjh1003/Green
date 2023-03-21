@@ -23,4 +23,8 @@ public interface HospitalDAO {
 	
 	public int deleteHospital(@Param("hospitalId") int hospitalId);
 	
+	public List<Hospital> searchHospitalList(
+			@Param("hospitalName") String hospitalName
+			, @Param("subject") String subject);
+	
 }

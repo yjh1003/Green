@@ -59,6 +59,8 @@
 		DELETE FROM
 	  		`hospital`
 	  	WHERE
-	  		`id` = #{id}
+	  		`id` = #{hospitalId}
 	</delete>
+	
+	
 </mapper>

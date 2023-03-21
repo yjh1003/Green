@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Green - 등록 병원 리스트</title>
+<title>Green - 리뷰 작성_진료과목 선택</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
@@ -15,7 +15,6 @@
 <link rel="stylesheet" href="/static/css/style.css" type="text/css">
 </head>
 <body>
-
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<div class="d-flex align-items-center">
@@ -27,7 +26,7 @@
 	             	 	<ol class="menu">
 			                <li class="nav-item"><a class="nav-link" href="#">우리동네 추천병원</a></li>
 			                <li class="nav-item"><a class="nav-link" href="#">가까운 병원찾기</a></li>
-			                <li class="nav-item"><a class="nav-link" id="hospitalregister" href="/hospital/registerlist">병원 등록</a></li>
+			                <li class="nav-item"><a class="nav-link" href="#">병원 등록</a></li>
 	              		  </ol>
              		 	</div>
                    <li class="nav-item"><a class="nav-link" role="button" data-toggle="collapse" data-parent="#accParent" href="#review" aria-constrols="addEx1">Review</a></li>
@@ -51,79 +50,26 @@
 			                <li class="nav-item"><a class="nav-link" href="#">인기글 목록</a></li>
 			                <li class="nav-item"><a class="nav-link" href="#">공지사항</a></li>
 	              		  </ol>
-             		 	</div>
              		  
                   	   </ul>
                	</nav>
                	</section>
-               	<div class="d-flex">
-               		<div class="container">
-               		<h2>병원정보리스트</h2>
-               		<table class="table text-center mt-4">
-               			<thead>
-							<tr>
-	               				<th>No.</th>
-	               				<th>등록자</th>
-	               				<th>병원명</th>
-	               				<th>진료과목</th>
-	               				<th>위치정보</th>
-	               				<th>전화번호</th>
-	               				<th>의료진 정보</th>
-	               				<th>홈페이지 주소</th>
-	               				<th>삭제</th>
-               				</tr>
-               			</thead>
-               			<tbody>
-               			<c:forEach var="hospital" items="${hospitalList }">
-               				<tr>
-               					<td>${hospital.id}</td>
-               					<td>${hospital.userId}</td>
-               					<td>${hospital.hospitalName}</td>
-               					<td>${hospital.subject}</td>
-               					<td>${hospital.address}</td>
-               					<td>${hospital.telnumber}</td>
-               					<td>${hospital.medicalStaff}</td>
-               					<td>${hospital.homepage}</td>
-               					<td><button type="button" class="btn btn-danger" id="deleteBtn" data-hospital-id="${hospital.id }">삭제</button></td>
-               					
-               				</tr>
-               			</c:forEach>
-               			</tbody>
-               			</table>
-               		</div>
-               	</div>
-               	</div>
                	
+               	<section class="subjectbox bg-primary containter">
+               		
+               			<div class="subjectselect bg-danger">
+                                <a class="subjectselect-item" href="#">내과</a>
+                                <a class="subjectselect-item" href="#">치과</a>
+                                <a class="subjectselect-item" href="#">안과</a>
+                                <a class="subjectselect-item" href="#">피부과</a>
+                                <a class="subjectselect-item" href="#">이비인후과</a>                
+               			</div>
+               		
+               	</section>
+               	
+          	</div>
+       	</div>
+      		
 
-
-
-	<script>
-	
-		$(document).ready(function() {
-			
-			$("#deleteBtn").on("click", function() {
-				let hospitalId = $(this).data("hospital-id");		
-				$.ajax({
-					type:"get"
-					, url:"/hospital/delete"
-					, data:{"hospitalId":hospitalId}
-					, success:function(data) {
-						if(data.result == "success") {
-							location.reload();
-						} else {
-							alert("삭제 실패");
-						}
-					
-					}
-					, error:function() {
-						alert("삭제 에러");
-					}
-				});
-			
-			});
-			
-		
-	</script>
-	
 </body>
 </html>

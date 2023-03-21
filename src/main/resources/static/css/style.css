@@ -33,9 +33,20 @@ header {
     background-color:rgba(39, 174, 96, 0.3);
 }
 
+.subjectbox {
+	width:1000px;
+	height:400px;
+}
+
+.subjectbox > .subjectselect {
+	width:800px;
+	height:200px;
+}
+
 .register {
 	width:600px;
 }
+
 
 
 .contents > .bg-box {

@@ -25,15 +25,15 @@
 	                   <li class="nav-item"><a class="nav-link" role="button" data-toggle="collapse" data-parent="#accParent" href="#hospital">Hospital</a></li>
 	             	 	<div id="hospital" class="panel-collapse collapse in" role="tabpanel">
 		             	 	<ol class="menu">
-				                <li class="nav-item"><a class="nav-link" href="#">우리동네 추천병원</a></li>
+				                <li class="nav-item"><a class="nav-link" href="/hospital/recommend/view">우리동네 추천병원</a></li>
 				                <li class="nav-item"><a class="nav-link" href="#">가까운 병원찾기</a></li>
-				                <li class="nav-item"><a class="nav-link" href="">병원 등록</a></li>
+				                <li class="nav-item"><a class="nav-link" href="/hospital/register/view">병원 등록</a></li>
 		              		  </ol>
               		 	</div>
 	                   <li class="nav-item"><a class="nav-link" role="button" data-toggle="collapse" data-parent="#accParent" href="#review" aria-constrols="addEx1">Review</a></li>
 	             	 	<div id="review" class="panel-collapse collapse in" role="tabpanel">
 		             	 	<ol class="menu">
-				                <li class="nav-item"><a class="nav-link" href="#">진료과목 선택</a></li>
+				                <li class="nav-item"><a class="nav-link" href="hospital/subject/select">진료과목 선택</a></li>
 				                <li class="nav-item"><a class="nav-link" href="#">병원 리뷰 작성</a></li>
 				                <li class="nav-item"><a class="nav-link" href="#">모두의 리뷰</a></li>
 		              		  </ol>
