@@ -23,7 +23,9 @@ public interface HospitalDAO {
 	
 	public int deleteHospital(@Param("hospitalId") int hospitalId);
 	
-	public List<Hospital> searchHospitalList(@Param("keyword") String keyword);
-	
+	public List<Hospital> searchListContaining(
+			@Param("keyword") String keyword
+			,@Param("String searchType") String searchType);
+	 						
 	
 }

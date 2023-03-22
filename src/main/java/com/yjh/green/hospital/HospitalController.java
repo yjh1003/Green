@@ -44,13 +44,14 @@ public class HospitalController {
 		return "/hospital/registerlist";
 	}
 	
-	@GetMapping("/subject/select")
-	public String subjectView() {
-		return "/hospital/subject";
-	}
 
 	@GetMapping("/search")
-	public String searchList() {
+	public String searchList(String keyword, String searchType, Model model) {
+		
+		List<Hospital> searchList = hospitalBO.SearchList(keyword, searchType);
+		
+		model.addAttribute("searchList", searchList);
+		
 		return "/hospital/search";
 	}
 	

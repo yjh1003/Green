@@ -65,6 +65,6 @@ public class HospitalRestController {
 		return result;
 	}
 	
-	
+
 	
 }

@@ -62,5 +62,19 @@
 	  		`id` = #{hospitalId}
 	</delete>
 	
-	
+	<select id="searchListContaining"  resultType="com.yjh.green.hospital.model.Hospital">
+		SELECT
+			`id`
+			, `hospitalName`
+			, `subject`
+			, `address`
+			, `telnumber`
+			, `medicalStaff`
+			, `homepage`
+		FROM 
+			`hospital`
+		WHERE `hospitalName` like '%${keyword}%'
+		ORDER BY
+			`hospitalName` DESC;
+	</select>
 </mapper>

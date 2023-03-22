@@ -6,7 +6,6 @@ public class Hospital {
 
 	private int id;
 	private int userId;
-	private String hospitalName;
 	private String subject;
 	private String address;
 	private String telnumber;
@@ -15,13 +14,8 @@ public class Hospital {
 	private Date createdAt;
 	private Date updatedAt;
 	private String keyword;
+	private String searchType;
 	
-	public String getKeyword() {
-		return keyword;
-	}
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
-	}
 	public int getId() {
 		return id;
 	}
@@ -33,12 +27,6 @@ public class Hospital {
 	}
 	public void setUserId(int userId) {
 		this.userId = userId;
-	}
-	public String getHospitalName() {
-		return hospitalName;
-	}
-	public void setHospitalName(String hospitalName) {
-		this.hospitalName = hospitalName;
 	}
 	public String getSubject() {
 		return subject;
@@ -82,6 +70,20 @@ public class Hospital {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+	public String getSearchType() {
+		return searchType;
+	}
+	public void setSearchType(String searchType) {
+		this.searchType = searchType;
+	}
+	
+	
 	
 	
 	

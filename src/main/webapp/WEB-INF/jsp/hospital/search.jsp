@@ -56,22 +56,59 @@
                	</nav>
                	</section>
                	<div class="container">
-               		<form method="get" action="/hospital/registerlist">
-		               	병원검색 : <input type = "text" id="hospitalName" placeholder="병원명 또는 진료과목을 입력하세요." onkeyup="search(this);"><button type="button" id="btn_search">Search</button>
-						<ul id="hospitalList"></ul> <!-- 검색리스트가 나타나는 영역 -->
-					</form>
+	               	<div class="d-flex ">
+		               	<select name="searchType">
+						      <option value="category">검색 카테고리</option>
+						      <option value="subject">진료과목</option>
+						      <option value="hospitalName" id="hospitalName">병원이름</option>
+						      <option value="address">위치정보</option>
+		  				</select>
+		               	<form method="get" action="/hospital/registerlist">
+			               	<input type = "text" id="search" placeholder="검색어를 입력하세요." onkeyup="search(this);"><button type="button" id="btn_search">Search</button>
+							<ul id="hospitalList"></ul> <!-- 검색리스트가 나타나는 영역 -->
+						</form>
+					</div>
+					
+               		<br>
+               		<table class="table text-center">
+               			<thead>
+							<tr>
+	               				<th>No.</th>
+	               				<th>병원명</th>
+	               				<th>진료과목</th>
+	               				<th>위치정보</th>
+	               				<th>의료진 정보</th>
+               				</tr>
+               			</thead>
+               			<tbody>
+               			<c:forEach var="hospital" items="${hospitalList }">
+               				<tr>
+               					<td>${hospital.id}</td>
+               					<td>${hospital.hospitalName}</td>
+               					<td>${hospital.subject}</td>
+               					<td>${hospital.address}</td>
+               					<td>${hospital.medicalStaff}</td>
+               				</tr>
+               			</c:forEach>
+               			</tbody>
+               		</table>
 				</div>
+				
          	</div>
+			<c:import url="/WEB-INF/jsp/include/footer.jsp" />
        	</div>
                	
 	<script>
 	$(document).ready(function() {
-		$("#hospitalName").on("click", function() {
+		$("#search").on("click", function() {
+			
+			let hospitalName = $("#hospitalName").val();
+			let search = $("#search").val();
 			
 			ajax({
 				type:"get"
-				, url:"hospital/register/list";
-				, data:{"hospitalName":hospitalName, "subject":subject}
+				, url:"hospital/search";
+				, data:{"hospitalName":hospitalName, "search":search}
 				, success:function(data) {
 					if(data.result == "success") {
 						location.reload();

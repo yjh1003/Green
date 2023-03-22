@@ -29,9 +29,11 @@ public class HospitalBO {
 		return hospitalDAO.deleteHospital(hospitalId);
 	}
 	
-	public List<Hospital> SearchList(String keyword) {
+	public List<Hospital> SearchList(String keyword, String searchType) {
 		
-		return hospitalDAO.searchHospitalList(keyword);
+		List<Hospital> searchList = hospitalDAO.searchListContaining(keyword, searchType);
+		
+		return searchList;
 	}
 	
 }
