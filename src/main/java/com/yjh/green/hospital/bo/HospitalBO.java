@@ -29,4 +29,9 @@ public class HospitalBO {
 		return hospitalDAO.deleteHospital(hospitalId);
 	}
 	
+	public List<Hospital> SearchList(String keyword) {
+		
+		return hospitalDAO.searchHospitalList(keyword);
+	}
+	
 }

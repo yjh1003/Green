@@ -25,8 +25,8 @@
 						<form id="LoginForm">
 							<input type="text" placeholder="ID" id="loginIdInput" class="form-control mt-2"> 
 							<input type="password" placeholder="Password" id="passwordInput" class="form-control mt-2">
-							<button type="submit" id="loginBtn" class="btn btn-block mt-2 text-white">로그인</button>
-							<button type="button" id="signUpBtn" class="btn btn-block mt-2 text-white">회원가입</button><br>
+							<button type="submit" id="loginBtn" class="btn common-btn btn-block mt-2 text-white">로그인</button>
+							<button type="button" id="signUpBtn" class="btn common-btn btn-block mt-2 text-white">회원가입</button><br>
 							<div class="d-flex justify-content-between">ID/비밀번호를 잊으셨나요?</div>
 						</form>
 					</div>

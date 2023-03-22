@@ -14,7 +14,14 @@ public class Hospital {
 	private String homepage;
 	private Date createdAt;
 	private Date updatedAt;
+	private String keyword;
 	
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
 	public int getId() {
 		return id;
 	}

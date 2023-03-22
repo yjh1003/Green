@@ -67,14 +67,21 @@
 	<script>
 	$(document).ready(function() {
 		$("#hospitalName").on("click", function() {
-			let hospitalName = $("#hospitalName").val();
 			
 			ajax({
-				type:"GET"
+				type:"get"
 				, url:"hospital/register/list";
 				, data:{"hospitalName":hospitalName, "subject":subject}
 				, success:function(data) {
-					
+					if(data.result == "success") {
+						location.reload();
+					} else {
+						alert("검색 실패");
+					}
+				
+				}
+				, error:function() {
+					alert("조회 에러");
 				}
 			});
 			

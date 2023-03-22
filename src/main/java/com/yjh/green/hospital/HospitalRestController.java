@@ -1,6 +1,7 @@
 package com.yjh.green.hospital;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.yjh.green.hospital.bo.HospitalBO;
+import com.yjh.green.hospital.model.Hospital;
 
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 @RequestMapping("/hospital")
@@ -63,5 +64,7 @@ public class HospitalRestController {
 		
 		return result;
 	}
+	
+	
 	
 }

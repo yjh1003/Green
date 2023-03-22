@@ -59,7 +59,7 @@
                	<div class="d-flex">
                		<div class="container">
                		<h2>병원정보리스트</h2>
-               		<table class="table text-center mt-4">
+               		<table class="table text-center">
                			<thead>
 							<tr>
 	               				<th>No.</th>

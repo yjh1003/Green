@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yjh.green.hospital.bo.HospitalBO;
@@ -51,8 +50,14 @@ public class HospitalController {
 	}
 
 	@GetMapping("/search")
-	public String searchView() {
+	public String searchList() {
 		return "/hospital/search";
 	}
+	
+	@GetMapping("/review/create")
+	public String hospitalReview() {
+		return "/hospital/review";
+	}
+	
 	
 }

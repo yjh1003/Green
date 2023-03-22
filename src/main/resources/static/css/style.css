@@ -10,10 +10,27 @@ header {
 	background-color:rgb(39, 174, 96);
 }
 
-.btn {
+.common-btn {
 	background-color:rgb(81, 61, 0);
+	color:white;
 }
 
+.save-btn {
+	background-color:#219e2b;
+	color:white;
+}
+
+.sub-btn {
+	background-color:rgba(39, 174, 96, 0.5);
+	color:white;
+}
+
+
+.nav {
+	width:200px;
+	height:600px;
+	background-color:#219e2b;
+}
 
 .nav > .nav-item > .nav-link {
     background-color:#219e2b; 
@@ -30,9 +47,10 @@ header {
 }
 
 .nav > .nav-item > a:hover {
-    background-color:rgba(39, 174, 96, 0.3);
+    background-color:rgba(39, 174, 96, 0.2);
 }
 
+    
 .subjectbox {
 	width:1000px;
 	height:400px;
@@ -47,7 +65,15 @@ header {
 	width:600px;
 }
 
+.review {
+	width:700px;
+	height:600px;
+}
 
+.evaluation {
+	width:600px;
+	height:200px;
+}
 
 .contents > .bg-box {
 	width:500px;

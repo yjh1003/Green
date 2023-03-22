@@ -23,7 +23,7 @@
 						<h2 class="text-center">Join</h2>
 						<div class="d-flex  mt-3">
 							<input type="text" id="loginIdInput" class="form-control" placeholder="아이디">
-							<button type="button" class="btn btn-info btn-sm ml-2" id="isDuplicateBtn">중복확인</button>
+							<button type="button" class="btn btn-info common-btn btn-sm ml-2" id="isDuplicateBtn">중복확인</button>
 						</div>
 						
 						<div class="small text-success d-none" id="availableText">사용가능한 아이디 입니다</div>
@@ -41,7 +41,7 @@
 							<input type = "radio" name = "account" value = "admin">Admin
 						</div>
 						
-						<button type="button" id="signUpBtn" class="btn btn-info btn-block mt-3">회원가입</button>
+						<button type="button" id="signUpBtn" class="btn btn-info common-btn btn-block mt-3">회원가입</button>
 					</div>
 				</div>
 			</section>
