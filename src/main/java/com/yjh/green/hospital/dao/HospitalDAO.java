@@ -26,6 +26,13 @@ public interface HospitalDAO {
 	public List<Hospital> searchListContaining(
 			@Param("keyword") String keyword
 			,@Param("String searchType") String searchType);
-	 						
 	
+	public int insertReview(
+			@Param("userId") int userId
+			, @Param("hospitalId") int hosapitalId
+			, @Param("title") String title
+			, @Param("evaluation") double evaluation
+			, @Param("content") String content
+			, @Param("imagePath") String imagePath);
+	 						
 }

@@ -6,6 +6,7 @@ public class Hospital {
 
 	private int id;
 	private int userId;
+	private String hospitalName;
 	private String subject;
 	private String address;
 	private String telnumber;
@@ -27,6 +28,12 @@ public class Hospital {
 	}
 	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+	public String getHospitalName() {
+		return hospitalName;
+	}
+	public void setHospitalName(String hospitalName) {
+		this.hospitalName = hospitalName;
 	}
 	public String getSubject() {
 		return subject;
@@ -82,6 +89,8 @@ public class Hospital {
 	public void setSearchType(String searchType) {
 		this.searchType = searchType;
 	}
+	
+	
 	
 	
 	

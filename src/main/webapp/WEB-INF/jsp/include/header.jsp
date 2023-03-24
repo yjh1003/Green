@@ -7,7 +7,6 @@
 		<h1 class="text-white pt-2 pl-2"> Green Review (Hospital & Health)</h1>
 		
 		<c:if test="${not empty userId }">
-			<i class="bi bi-person-circle"></i>
-			<div class="mr-3"><b>${userName }</b>님 환영합니다!<button class="btn common-btn text-white">내 프로필</button><a href="/user/signout">로그아웃</a></div>
+			<div class="bi bi-person-circle mr-3"><b>${userName }</b>님 환영합니다!<button class="btn common-btn text-white">내 프로필</button><a href="/user/signout">로그아웃</a></div>
 		</c:if>
 	</header>

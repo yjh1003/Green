@@ -73,8 +73,36 @@
 			, `homepage`
 		FROM 
 			`hospital`
-		WHERE `hospitalName` like '%${keyword}%'
-		ORDER BY
-			`hospitalName` DESC;
+		WHERE `hospitalName` like '%${keyword}%' OR
+	          `subject` like '%${keyword}%' OR
+	          `address` like '%${keyword}%'		
+        ORDER BY
+			`id` ASC;
 	</select>
+	
+	<insert id="insertReview" parameterType="map">
+		INSERT INTO
+			`review`
+		(
+			`userId`
+			, `hospitalId`
+			, `title`
+			, `evaluation`
+			, `content`
+			, `imagePath`
+			, `createdAt`
+			, `updatedAt`
+		)
+		VALUE
+		(
+			#{userId}
+			, #{hospitalId}
+			, #{title}
+			, #{evaluation}
+			, #{content}
+			, #{imagePath}
+			, now()
+			, now()
+		)
+	</insert>
 </mapper>

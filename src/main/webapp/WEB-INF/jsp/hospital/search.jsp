@@ -57,16 +57,16 @@
                	</section>
                	<div class="container">
 	               	<div class="d-flex ">
-		               	<select name="searchType">
-						      <option value="category">검색 카테고리</option>
+						<form action="/hospital/search" method="GET" class="form-inline p-2 bd-highlight" role="search">
+		               	<select name="searchType" title="검색 유형 선택">
+						      <option value="">전체 검색</option>
 						      <option value="subject">진료과목</option>
-						      <option value="hospitalName" id="hospitalName">병원이름</option>
+						      <option value="hospitalName">병원이름</option>
 						      <option value="address">위치정보</option>
 		  				</select>
-		               	<form method="get" action="/hospital/registerlist">
-			               	<input type = "text" id="search" placeholder="검색어를 입력하세요." onkeyup="search(this);"><button type="button" id="btn_search">Search</button>
-							<ul id="hospitalList"></ul> <!-- 검색리스트가 나타나는 영역 -->
-						</form>
+					        <input type="text" name="keyword" class="form-control" id="search" placeholder="검색">
+					        <button class="btn btn-success bi bi-search"></button>
+   						</form>
 					</div>
 					
                		<br>
@@ -78,16 +78,18 @@
 	               				<th>진료과목</th>
 	               				<th>위치정보</th>
 	               				<th>의료진 정보</th>
+	               				<th>선택</th>
                				</tr>
                			</thead>
-               			<tbody>
-               			<c:forEach var="hospital" items="${hospitalList }">
+               			<tbody id="row">
+               			<c:forEach var="hospital" items="${searchList }">
                				<tr>
                					<td>${hospital.id}</td>
                					<td>${hospital.hospitalName}</td>
                					<td>${hospital.subject}</td>
                					<td>${hospital.address}</td>
                					<td>${hospital.medicalStaff}</td>
+               					<td><button class="btn btn-success" id="selectBtn" data-hospital-id="${hospital.id }">선택</button></td>
                				</tr>
                			</c:forEach>
                			</tbody>
@@ -100,30 +102,27 @@
                	
 	<script>
 	$(document).ready(function() {
-		$("#search").on("click", function() {
+		$("#search").on("submit", function(e) {
+			e.preventDefault();
 			
-			let hospitalName = $("#hospitalName").val();
 			let search = $("#search").val();
 			
 			ajax({
 				type:"get"
 				, url:"hospital/search";
-				, data:{"hospitalName":hospitalName, "search":search}
+				, data:{"input[name=keyword]"}
 				, success:function(data) {
-					if(data.result == "success") {
-						location.reload();
-					} else {
-						alert("검색 실패");
-					}
 				
 				}
-				, error:function() {
-					alert("조회 에러");
-				}
-			});
 			
-		});
 		
+		
+			$("#selectBtn").on("click", function() {
+				
+				location.href ="/hospital/review/create";
+				
+			});
+		});
 	});
 	</script>
 </body>

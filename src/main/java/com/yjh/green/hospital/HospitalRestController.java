@@ -1,7 +1,6 @@
 package com.yjh.green.hospital;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.yjh.green.hospital.bo.HospitalBO;
-import com.yjh.green.hospital.model.Hospital;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -65,6 +64,31 @@ public class HospitalRestController {
 		return result;
 	}
 	
+	@PostMapping("/review")
+	public Map<String, String> hospitalReview(
+			@RequestParam("hospitalId") int hospitalId
+			, @RequestParam("title") String title
+			, @RequestParam("evaluation") double evaluation
+			, @RequestParam("content") String content
+			, @RequestParam("imagePath") MultipartFile imagePath
+			, HttpSession session) {
+		
+		int userId = (Integer)session.getAttribute("userId");
+		
+		int count = hospitalBO.addReview(userId, hospitalId, title, evaluation, content, imagePath);
+		
+		Map<String, String> result = new HashMap<>();
+		
+		if(count == 1) {
+			result.put("result", "success");
+		} else {
+			result.put("result", "fail");
+		}
+		
+		return result;
+		
+	}
+			
 
 	
 }

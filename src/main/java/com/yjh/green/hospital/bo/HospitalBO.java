@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.yjh.green.common.FileManagerService;
 import com.yjh.green.hospital.dao.HospitalDAO;
 import com.yjh.green.hospital.model.Hospital;
 
@@ -35,5 +37,13 @@ public class HospitalBO {
 		
 		return searchList;
 	}
+	
+	public int addReview (int userId, int hospitalId, String title, double evaluation, String content, MultipartFile imagePath) {
+		
+		String imageFile = FileManagerService.saveFile(userId, imagePath);
+		
+		return hospitalDAO.insertReview(userId, hospitalId, title, evaluation, content, imageFile);
+	}
+	
 	
 }
