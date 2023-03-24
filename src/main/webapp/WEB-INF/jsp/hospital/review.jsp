@@ -60,19 +60,19 @@
                <div class="review">
                		<h5 class="mt-4 ml-3">안과 > 아이준안과의원 > 리뷰쓰기</h5>
                		<div class="d-flex mt-4">
-               			<label class="col-2"><b>제목 :</b> </label><input type="text" name="name" class="form-control col-8" placeholder="제목(한줄평)을 입력하세요.">
+               			<label class="col-2"><b>제목 :</b> </label><input id="title" type="text" name="name" class="form-control col-8" placeholder="제목(한줄평)을 입력하세요.">
                		</div>
                		
-               		<div class="evaluation form-control row-5 col-8 ml-4 mt-3">
+               		<div id="evaluation" class="evaluation form-control row-5 col-8 ml-4 mt-3">
                			<b>평가 항목 :</b>
                			<div class="d-flex mt-3">
-	               			<div class="mr-3">
-	               				<label>의료진의 진료능력</label><br>
-		               			<i class="bi bi-star"></i>
-		               			<i class="bi bi-star"></i>
-		               			<i class="bi bi-star"></i>
-		               			<i class="bi bi-star"></i>
-		               			<i class="bi bi-star"></i>
+               				<div class="ml-3">
+               				<label>의료진의 진료능력</label><br>
+               				<span class="star">
+							  ★★★★★
+							  <span>★★★★★</span>
+							  <input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10">
+							</span>
 	               			</div>
 	               			<div class="ml-3">
 	               				<label>의료진의 친절도</label><br>
@@ -102,19 +102,81 @@
 	               			</div>
                			</div>
                		</div>
-			<textarea class="form-control row-5 col-8 ml-4 mt-3" placeholder="리뷰 내용을 입력해주세요.(100자 이상)">
+			<textarea id="content" class="form-control row-5 col-8 ml-4 mt-3" placeholder="리뷰 내용을 입력해주세요.(100자 이상)">
 			
 			</textarea>
-				<div class="ml-4">
+				<div id="imageFile" class="ml-4">
              		<i class="bi bi-images"></i> 이미지파일 첨부하기(선택)
             	 </div>
             	 <div class="float-right mt-4">
-	            	 <button class="btn sub-btn btn-small">임시저장</button>
-	            	 <button class="btn save-btn btn-small">등록하기</button>
+	            	 <button class="btn sub-btn btn-small" id="tempBtn">임시저장</button>
+	            	 <button class="btn save-btn btn-small" id="saveBtn">등록하기</button>
                	 </div>
                </div>
             </div>
 			<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 		</div>
+	<script>
+			const drawStar => (target) {
+		  		$('.star span').css({ width: '${target.value * 10}%' });
+			}
+			
+			
+		
+		$(document).ready(function() {
+			
+			$("#saveBtn").on("click", function() {
+				let title = $("#title").val();	
+				let evaluation = $("#evaluation").val();	
+				let content = $("#content").val();
+				
+				if(title == "") {
+					alert("제목을 입력해주세요.");
+					return ;
+				}
+				
+				if(evaluation == "") {
+					alert("평가 항목을 작성해주세요.");
+					return ;
+				}
+				
+				if(content == "") {
+					alert("리뷰 내용을 작성해주세요.")
+					return ;
+				}
+				
+				
+				
+				var formData = new FormData();
+				formData.append("title", title);
+				formData.append("content", content);
+				formData.append("file", $("#fileInput")[0].files[0])
+				
+				 
+				$.ajax({
+					type:"post"
+					, url:"hospital/review/create"
+					, data:formData
+					, enctype:"multipart/form-data" // 파일 업로드 필수 항목
+					, processData:false // 파일 업로드 필수 항목
+					, contentType:false // 파일 업로드 필수 항목
+					, success:function(data) {
+						
+						if(data.result == "success") {
+							location.href = "/hospital/review/list";
+						} else {
+							alert("리뷰 저장 실패");
+						}
+						
+					}
+					, error:function() {
+						alert("리뷰 저장 에러");
+					}
+				});
+				
+			});	
+		});
+	
+	</script>
 </body>
 </html>

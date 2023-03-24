@@ -87,7 +87,11 @@
 			`userId`
 			, `hospitalId`
 			, `title`
-			, `evaluation`
+			, `treat`
+			, `medicalStaff_kindness` 
+		    , `staff_kindness` 
+		    , `cleanliness`
+		    , `avg_evaluation` 
 			, `content`
 			, `imagePath`
 			, `createdAt`
@@ -98,7 +102,11 @@
 			#{userId}
 			, #{hospitalId}
 			, #{title}
-			, #{evaluation}
+			, #{treat}
+			, #{medicalStaff_kindness}
+			, #{staff_kindness}
+			, #{cleanliness}
+			, #{avg_evaluation}
 			, #{content}
 			, #{imagePath}
 			, now()

@@ -102,18 +102,8 @@
                	
 	<script>
 	$(document).ready(function() {
-		$("#search").on("submit", function(e) {
-			e.preventDefault();
+		
 			
-			let search = $("#search").val();
-			
-			ajax({
-				type:"get"
-				, url:"hospital/search";
-				, data:{"input[name=keyword]"}
-				, success:function(data) {
-				
-				}
 			
 		
 		
@@ -122,7 +112,7 @@
 				location.href ="/hospital/review/create";
 				
 			});
-		});
+		
 	});
 	</script>
 </body>

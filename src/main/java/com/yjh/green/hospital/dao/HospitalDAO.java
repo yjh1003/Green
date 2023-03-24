@@ -31,7 +31,11 @@ public interface HospitalDAO {
 			@Param("userId") int userId
 			, @Param("hospitalId") int hosapitalId
 			, @Param("title") String title
-			, @Param("evaluation") double evaluation
+			, @Param("treat") double treat
+			, @Param("medicalStaff_kindness") double medicalStaff_kindness
+			, @Param("staff_kindness") double staff_kindness
+			, @Param("cleanliness") double cleanliness
+			, @Param("avg_evaluation") double avg_evaluation
 			, @Param("content") String content
 			, @Param("imagePath") String imagePath);
 	 						
