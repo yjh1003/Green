@@ -76,21 +76,19 @@
 	               			</div>
 	               			<div class="ml-3">
 	               				<label>의료진의 친절도</label><br>
-		               			<i class="bi bi-star"></i>
-		               			<i class="bi bi-star"></i>
-		               			<i class="bi bi-star"></i>
-		               			<i class="bi bi-star"></i>
-		               			<i class="bi bi-star"></i>
+		               			
 	               			</div>
                			</div>
                			<div class="d-flex mt-3">
 	               			<div class="mr-3">
-	               				<label>직원의 친절도</label><br>
-		               			<i class="bi bi-star-fill"></i>
-		               			<i class="bi bi-star-fill"></i>
-		               			<i class="bi bi-star-fill"></i>
-		               			<i class="bi bi-star-half"></i>
-		               			<i class="bi bi-star"></i>
+	               			<label>직원의 친절도</label><br>
+               			  		<P id="star"> <!-- 부모 -->
+								   <a href="#" value="1">★</a> <!-- 자식들-->
+								   <a href="#" value="2">★</a>
+								   <a href="#" value="3">★</a>
+								   <a href="#" value="4">★</a>
+								   <a href="#" value="5">★</a>
+							  	<p>
 	               			</div>
 	               			<div class="ml-3">
 	               				<label>병원 내 위생</label><br>
@@ -118,10 +116,12 @@
 		</div>
 	<script>
 			const drawStar => (target) {
-		  		$('.star span').css({ width: '${target.value * 10}%' });
+		  		$(".star span").css({ width: '${target.value * 10}%' });
 			}
 			
-			
+			const drawStar = $(event.target);
+			drawStar.css('width:')
+			   
 		
 		$(document).ready(function() {
 			
@@ -146,6 +146,19 @@
 				}
 				
 				
+				#star a{
+					   text-decoration: none;
+					   color: gray;
+					  }
+					  
+					  #star a.on{
+					   color: red;
+					  }
+				$('#star a').click(function(){ 
+					 $(this).parent().children("a").removeClass("on");    
+					 $(this).addClass("on").prevAll("a").addClass("on");
+					 console.log($(this).attr("value"));
+				 });
 				
 				var formData = new FormData();
 				formData.append("title", title);

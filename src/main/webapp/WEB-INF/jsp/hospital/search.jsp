@@ -67,6 +67,8 @@
 					        <input type="text" name="keyword" class="form-control" id="search" placeholder="검색">
 					        <button class="btn btn-success bi bi-search"></button>
    						</form>
+						<button class="btn btn-primary" id="reviewCreate">리뷰작성 하러가기</button>
+						<button class="btn btn-warning" id="hospitalInformation">병원정보 보러가기</button>
 					</div>
 					
                		<br>
@@ -89,7 +91,7 @@
                					<td>${hospital.subject}</td>
                					<td>${hospital.address}</td>
                					<td>${hospital.medicalStaff}</td>
-               					<td><button class="btn btn-success" id="selectBtn" data-hospital-id="${hospital.id }">선택</button></td>
+               					<td><button class="btn btn-success" onclick="dis()" id="show" data-hospital-id="${hospital.id }">선택</button></td>
                				</tr>
                			</c:forEach>
                			</tbody>
@@ -103,16 +105,19 @@
 	<script>
 	$(document).ready(function() {
 		
-			
-			
-		
-		
 			$("#selectBtn").on("click", function() {
 				
-				location.href ="/hospital/review/create";
+				$("#reviewCreate").show();
+				$("#hospitalInformation").show();
+
 				
 			});
-		
+			
+			
+			$("#reviewCreate").on("click", function() {
+			
+				location.href = "/hospital/review/create";
+			});
 	});
 	</script>
 </body>
