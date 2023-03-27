@@ -3,12 +3,15 @@ package com.yjh.green.hospital;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yjh.green.hospital.bo.HospitalBO;
+import com.yjh.green.hospital.dao.Page;
 import com.yjh.green.hospital.model.Hospital;
 
 import jakarta.servlet.http.HttpSession;
@@ -45,15 +48,19 @@ public class HospitalController {
 	}
 	
 
-	@GetMapping("/search")
-	public String searchList(String keyword, String searchType, Model model) {
-		
-		List<Hospital> searchList = hospitalBO.SearchList(keyword, searchType);
-		
-		model.addAttribute("searchList", searchList);
-		
-		return "/hospital/search";
-	}
+//	@GetMapping("/search")
+//	public String searchList(
+//			String keyword
+//			, String searchType
+//			, Model model
+//			, @PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+//		
+//		Page<Hospital> searchList = hospitalBO.SearchList(keyword, searchType, pageable);
+//		
+//		model.addAttribute("searchList", searchList);
+//		
+//		return "/hospital/search";
+//	}
 	
 	@GetMapping("/review/create")
 	public String hospitalReview() {

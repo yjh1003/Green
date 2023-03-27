@@ -3,11 +3,14 @@ package com.yjh.green.hospital.bo;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.yjh.green.common.FileManagerService;
 import com.yjh.green.hospital.dao.HospitalDAO;
+import com.yjh.green.hospital.dao.Page;
 import com.yjh.green.hospital.model.Hospital;
 
 @Service
@@ -31,9 +34,10 @@ public class HospitalBO {
 		return hospitalDAO.deleteHospital(hospitalId);
 	}
 	
-	public List<Hospital> SearchList(String keyword, String searchType) {
+	@Transactional
+	public Page<Hospital> SearchList(String keyword, String searchType, Pageable pageable) {
 		
-		List<Hospital> searchList = hospitalDAO.searchListContaining(keyword, searchType);
+		Page<Hospital> searchList = hospitalDAO.searchListContaining(keyword, searchType, pageable);
 		
 		return searchList;
 	}

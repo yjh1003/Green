@@ -14,8 +14,7 @@ public class Hospital {
 	private String homepage;
 	private Date createdAt;
 	private Date updatedAt;
-	private String keyword;
-	private String searchType;
+	
 	
 	public int getId() {
 		return id;
@@ -77,18 +76,7 @@ public class Hospital {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	public String getKeyword() {
-		return keyword;
-	}
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
-	}
-	public String getSearchType() {
-		return searchType;
-	}
-	public void setSearchType(String searchType) {
-		this.searchType = searchType;
-	}
+
 	
 	
 	
