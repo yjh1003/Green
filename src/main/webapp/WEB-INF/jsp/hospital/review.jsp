@@ -158,8 +158,8 @@
 				
 				 
 				$.ajax({
-					type:"get"
-					, url:"hospital/review/create"
+					type:"post"
+					, url:"/hospital/review"
 					, data:{"title":title, "content":content, "treat":evaluation1, "medicalStaff_kindness":evaluation2, "staff_kindness":evaluation3, "cleanliness":evaluation4 }
 				//	, enctype:"multipart/form-data" // 파일 업로드 필수 항목
 				//	, processData:false // 파일 업로드 필수 항목

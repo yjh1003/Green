@@ -3,15 +3,13 @@ package com.yjh.green.hospital;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yjh.green.hospital.bo.HospitalBO;
-import com.yjh.green.hospital.dao.Page;
 import com.yjh.green.hospital.model.Hospital;
 
 import jakarta.servlet.http.HttpSession;
