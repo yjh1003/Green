@@ -42,4 +42,4 @@ public interface HospitalDAO {
 			, @Param("content") String content
 			, @Param("imagePath") String imagePath);
 	 						
-}
+	}

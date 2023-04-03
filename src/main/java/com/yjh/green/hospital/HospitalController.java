@@ -67,5 +67,10 @@ public class HospitalController {
 		return "/hospital/review";
 	}
 	
+	@GetMapping("/review/list")
+	public String reviewList() {
+		return "/hospital/reviewlist";
+	}
+	
 	
 }

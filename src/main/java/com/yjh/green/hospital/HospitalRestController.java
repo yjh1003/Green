@@ -86,7 +86,7 @@ public class HospitalRestController {
 		
 		int count = hospitalBO.addReview(userId, hospitalId, title, treat, medicalStaff_kindness, staff_kindness, cleanliness, avg_evaluation, content, imagePath);
 		
-				Map<String, String> result = new HashMap<>();
+		Map<String, String> result = new HashMap<>();
 		
 		if(count == 1) {
 			result.put("result", "success");

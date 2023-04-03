@@ -63,71 +63,57 @@
                			<label class="col-2"><b>제목 :</b> </label><input id="title" type="text" name="name" class="form-control col-8" placeholder="제목(한줄평)을 입력하세요.">
                		</div>
                		
-               		<div id="evaluation" class="evaluation form-control row-5 col-8 ml-4 mt-3">
+               		<div class="evaluation form-control row-5 col-8 ml-4 mt-3">
                			<b>평가 항목 :</b>
                			<div class="d-flex mt-3">
                				<div class="ml-3">
-               				<label>의료진의 진료능력</label><br>
-               				<span class="star">
-							  ★★★★★
-							  <span>★★★★★</span>
-							  <input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10">
-							</span>
+	               				<label>의료진의 진료능력</label><br>
+	               				<input id="evaluation1" class=" form-control col-10">
 	               			</div>
 	               			<div class="ml-3">
 	               				<label>의료진의 친절도</label><br>
-		               			
+	               				<input id="evaluation2" class=" form-control col-10">
 	               			</div>
                			</div>
                			<div class="d-flex mt-3">
 	               			<div class="mr-3">
-	               			<label>직원의 친절도</label><br>
-               			  		<P id="star"> <!-- 부모 -->
-								   <a href="#" value="1">★</a> <!-- 자식들-->
-								   <a href="#" value="2">★</a>
-								   <a href="#" value="3">★</a>
-								   <a href="#" value="4">★</a>
-								   <a href="#" value="5">★</a>
-							  	<p>
+	               				<label>직원의 친절도</label><br>
+               			  		<input id="evaluation3" class=" form-control col-10">
 	               			</div>
 	               			<div class="ml-3">
 	               				<label>병원 내 위생</label><br>
-		               			<i class="bi bi-star"></i>
-		               			<i class="bi bi-star"></i>
-		               			<i class="bi bi-star"></i>
-		               			<i class="bi bi-star"></i>
-		               			<i class="bi bi-star"></i>
-	               			</div>
+		               			<input id="evaluation4" class=" form-control col-10">
+               				</div>
                			</div>
-               		</div>
-			<textarea id="content" class="form-control row-5 col-8 ml-4 mt-3" placeholder="리뷰 내용을 입력해주세요.(100자 이상)">
-			
-			</textarea>
-				<div id="imageFile" class="ml-4">
-             		<i class="bi bi-images"></i> 이미지파일 첨부하기(선택)
+               			
+               	<div >		
+					<textarea id="content" rows="7" minlength="100" class="mt-3 form-control" placeholder="리뷰 내용을 입력해주세요.(100자 이상)"></textarea>
+				</div>
+				<div  class="ml-4">
+             		<i id="fileInput" class="bi bi-images"></i> 이미지파일 첨부하기(선택)
             	 </div>
             	 <div class="float-right mt-4">
 	            	 <button class="btn sub-btn btn-small" id="tempBtn">임시저장</button>
 	            	 <button class="btn save-btn btn-small" id="saveBtn">등록하기</button>
                	 </div>
+               	 
                </div>
             </div>
-			<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 		</div>
-	<script>
-			const drawStar => (target) {
-		  		$(".star span").css({ width: '${target.value * 10}%' });
-			}
+		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
+		</div>
 			
-			const drawStar = $(event.target);
-			drawStar.css('width:')
+	<script>
 			   
 		
 		$(document).ready(function() {
-			
+
 			$("#saveBtn").on("click", function() {
 				let title = $("#title").val();	
-				let evaluation = $("#evaluation").val();	
+				let evaluation1 = $("#evaluation1").val();	
+				let evaluation2 = $("#evaluation2").val();	
+				let evaluation3 = $("#evaluation3").val();	
+				let evaluation4 = $("#evaluation4").val();	
 				let content = $("#content").val();
 				
 				if(title == "") {
@@ -135,8 +121,23 @@
 					return ;
 				}
 				
-				if(evaluation == "") {
-					alert("평가 항목을 작성해주세요.");
+				if(evaluation1 == "") {
+					alert("의료진의 진료능력 평가항목을 작성해주세요.");
+					return ;
+				}
+				
+				if(evaluation2 == "") {
+					alert("의료진의 친절도 평가항목을 작성해주세요.");
+					return ;
+				}
+				
+				if(evaluation3 == "") {
+					alert("직원의 진료능력 평가항목을 작성해주세요.");
+					return ;
+				}
+				
+				if(evaluation4 == "") {
+					alert("병원 위생 평가항목을 작성해주세요.");
 					return ;
 				}
 				
@@ -146,33 +147,23 @@
 				}
 				
 				
-				#star a{
-					   text-decoration: none;
-					   color: gray;
-					  }
-					  
-					  #star a.on{
-					   color: red;
-					  }
-				$('#star a').click(function(){ 
-					 $(this).parent().children("a").removeClass("on");    
-					 $(this).addClass("on").prevAll("a").addClass("on");
-					 console.log($(this).attr("value"));
-				 });
-				
-				var formData = new FormData();
-				formData.append("title", title);
-				formData.append("content", content);
-				formData.append("file", $("#fileInput")[0].files[0])
+			//	var formData = new FormData();
+			//	formData.append("title", title);
+			//	formData.append("content", content);
+			//	formData.append("treat", evaluation1);
+			//	formData.append("medicalStaff_kindness", evaluation2);
+			//	formData.append("staff_kindness", evaluation3);
+			//	formData.append("cleanliness", evaluation4);
+			//	formData.append("imagePath", $("#fileInput")[0].files[0])
 				
 				 
 				$.ajax({
-					type:"post"
+					type:"get"
 					, url:"hospital/review/create"
-					, data:formData
-					, enctype:"multipart/form-data" // 파일 업로드 필수 항목
-					, processData:false // 파일 업로드 필수 항목
-					, contentType:false // 파일 업로드 필수 항목
+					, data:{"title":title, "content":content, "treat":evaluation1, "medicalStaff_kindness":evaluation2, "staff_kindness":evaluation3, "cleanliness":evaluation4 }
+				//	, enctype:"multipart/form-data" // 파일 업로드 필수 항목
+				//	, processData:false // 파일 업로드 필수 항목
+				//	, contentType:false // 파일 업로드 필수 항목
 					, success:function(data) {
 						
 						if(data.result == "success") {
