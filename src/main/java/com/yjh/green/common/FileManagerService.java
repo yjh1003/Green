@@ -10,10 +10,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class FileManagerService {
 
-	public static final String FILE_UPLOAD_PATH = "C:\\허예진\\springProject\\green\\images";
-	
+    public static final String FILE_UPLOAD_PATH = "/home/ec2-user/green/images";
+
+    //  public static final String FILE_UPLOAD_PATH = "C:\\허예진\\springProject\\green\\images";
 	// 파일을 저장하고, 클라이언트에서 접근 가능한 주소를 만들어서 리턴하는 기능
-	public static String saveFile(int userId, MultipartFile file) {
+	
+    public static String saveFile(int userId, MultipartFile file) {
 		
 		// 파일 저장
 		String fileUploadPath = "C:\\허예진\\springProject\\green\\images";

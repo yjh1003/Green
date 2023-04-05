@@ -3,6 +3,9 @@ package com.yjh.green.user;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,9 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.yjh.green.user.bo.UserBO;
 import com.yjh.green.user.model.User;
-
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping("/user")
