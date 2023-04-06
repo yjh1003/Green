@@ -64,7 +64,7 @@
 						, success:function(data) {
 							
 							if(data.result == "success") {
-								location.href = "/hospital/recommend/view";
+								location.href = "/hospital/search";
 							} else {
 								alert("아이디/패스워드를 확인해주세요");
 							}

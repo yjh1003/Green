@@ -45,19 +45,18 @@ public class HospitalController {
 	}
 	
 
-//	@GetMapping("/search")
-//	public String searchList(
-//			String keyword
-//			, String searchType
-//			, Model model
-//			, @PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
-//		
-//		Page<Hospital> searchList = hospitalBO.SearchList(keyword, searchType, pageable);
-//		
-//		model.addAttribute("searchList", searchList);
-//		
-//		return "/hospital/search";
-//	}
+	@GetMapping("/search")
+	public String searchList(
+			String keyword
+			, String searchType
+			, Model model) {
+		
+		List<Hospital> searchList = hospitalBO.SearchList(keyword, searchType);
+		
+		model.addAttribute("searchList", searchList);
+		
+		return "/hospital/search";
+	}
 	
 	@GetMapping("/review/create")
 	public String hospitalReview() {

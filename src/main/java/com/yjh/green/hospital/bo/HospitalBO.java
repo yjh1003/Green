@@ -35,9 +35,9 @@ public class HospitalBO {
 	}
 	
 	@Transactional
-	public Page<Hospital> SearchList(String keyword, String searchType, Pageable pageable) {
+	public List<Hospital> SearchList(String keyword, String searchType) {
 		
-		Page<Hospital> searchList = hospitalDAO.searchListContaining(keyword, searchType, pageable);
+		List<Hospital> searchList = hospitalDAO.searchListContaining(keyword, searchType);
 		
 		return searchList;
 	}

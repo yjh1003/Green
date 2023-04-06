@@ -3,7 +3,6 @@ package com.yjh.green.hospital.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.stereotype.Repository;
 
 import com.yjh.green.hospital.model.Hospital;
@@ -24,10 +23,9 @@ public interface HospitalDAO {
 	
 	public int deleteHospital(@Param("hospitalId") int hospitalId);
 	
-	public Page<Hospital> searchListContaining(
+	public List<Hospital> searchListContaining(
 			@Param("keyword") String keyword
-			,@Param("String searchType") String searchType
-			, Pageable pageable);
+			,@Param("String searchType") String searchType);
 	
 	
 	public int insertReview(
