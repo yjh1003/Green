@@ -67,20 +67,20 @@ public class HospitalRestController {
 	
 	@PostMapping("/review")
 	public Map<String, String> hospitalReview(
-			@RequestParam("hospitalId") int hospitalId
-			, @RequestParam("title") String title
+//			@RequestParam("hospitalId") int hospitalId
+			  @RequestParam("title") String title
 			, @RequestParam("treat") double treat
 			, @RequestParam("medicalStaff_kindness") double medicalStaff_kindness
 			, @RequestParam("staff_kindness") double staff_kindness
 			, @RequestParam("cleanliness") double cleanliness
-			, @RequestParam("avg_evaluation") double avg_evaluation
+//			, @RequestParam("avg_evaluation") double avg_evaluation
 			, @RequestParam("content") String content
-			, @RequestParam("imagePath") MultipartFile imagePath
+//			, @RequestParam("imagePath") MultipartFile imagePath
 			, HttpSession session) {
 		
 		int userId = (Integer)session.getAttribute("userId");
 		
-		int count = hospitalBO.addReview(userId, hospitalId, title, treat, medicalStaff_kindness, staff_kindness, cleanliness, avg_evaluation, content, imagePath);
+		int count = hospitalBO.addReview(userId, title, treat, medicalStaff_kindness, staff_kindness, cleanliness, content);
 		
 		Map<String, String> result = new HashMap<>();
 		

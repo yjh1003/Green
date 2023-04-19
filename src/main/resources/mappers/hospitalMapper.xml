@@ -85,30 +85,24 @@
 			`review`
 		(
 			`userId`
-			, `hospitalId`
 			, `title`
 			, `treat`
 			, `medicalStaff_kindness` 
 		    , `staff_kindness` 
 		    , `cleanliness`
-		    , `avg_evaluation` 
 			, `content`
-			, `imagePath`
 			, `createdAt`
 			, `updatedAt`
 		)
 		VALUE
 		(
 			#{userId}
-			, #{hospitalId}
 			, #{title}
 			, #{treat}
 			, #{medicalStaff_kindness}
 			, #{staff_kindness}
 			, #{cleanliness}
-			, #{avg_evaluation}
 			, #{content}
-			, #{imagePath}
 			, now()
 			, now()
 		)

@@ -42,11 +42,11 @@ public class HospitalBO {
 		return searchList;
 	}
 	
-	public int addReview (int userId, int hospitalId, String title, double treat, double medicalStaff_kindness, double staff_kindness, double cleanliness, double avg_evaluation, String content, MultipartFile imagePath) {
+	public int addReview (int userId, String title, double treat, double medicalStaff_kindness, double staff_kindness, double cleanliness, String content) {
 		
-		String imageFile = FileManagerService.saveFile(userId, imagePath);
+//		String imageFile = FileManagerService.saveFile(userId, imagePath);
 		
-		return hospitalDAO.insertReview(userId, hospitalId, title, treat, medicalStaff_kindness, staff_kindness, cleanliness, avg_evaluation, content, imageFile);
+		return hospitalDAO.insertReview(userId, title, treat, medicalStaff_kindness, staff_kindness, cleanliness, content);
 	}
 	
 	
