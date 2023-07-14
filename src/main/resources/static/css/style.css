@@ -50,7 +50,17 @@ header {
     background-color:rgba(39, 174, 96, 0.2);
 }
 
-    
+#map {
+		width:700px;
+		height:500px;
+}   
+
+.recommend {
+    color:black; 
+    font-size:17px;
+    font-weight: bold;
+}
+
 .subjectbox {
 	width:1000px;
 	height:400px;
